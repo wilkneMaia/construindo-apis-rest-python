@@ -5,8 +5,10 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.responses import JSONResponse
 
 from api_pedidos.esquema import HealthCheckResponse, Item
-from api_pedidos.excecao import (FalhaDeComunicacaoError,
-                                 PedidoNaoEncontradoError)
+from api_pedidos.excecao import (
+    FalhaDeComunicacaoError,
+    PedidoNaoEncontradoError,
+)
 
 app = FastAPI()
 

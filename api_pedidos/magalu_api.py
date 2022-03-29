@@ -5,8 +5,10 @@ from uuid import UUID
 import httpx
 
 from api_pedidos.esquema import Item
-from api_pedidos.excecao import (FalhaDeComunicacaoError,
-                                 PedidoNaoEncontradoError)
+from api_pedidos.excecao import (
+    FalhaDeComunicacaoError,
+    PedidoNaoEncontradoError,
+)
 
 # tenant e apikey fixos somente para demonstrações
 APIKEY = os.environ.get("APIKEY", "coloque aqui sua apikey")
@@ -46,7 +48,8 @@ def recuperar_itens_por_pedido(identificacao_do_pedido: UUID) -> list[Item]:
         for pacote in pacotes:
             itens.extend(
                 _recupera_itens_por_pacote(
-                    identificacao_do_pedido, pacote["uuid"])
+                    identificacao_do_pedido, pacote["uuid"]
+                )
             )
         return itens
     except httpx.HTTPStatusError as exc:
